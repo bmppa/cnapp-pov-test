@@ -110,7 +110,7 @@ This environment intentionally enables **multiple cloud security domains** and i
 
 **Scenario:**
 
-* Publicly accessible RDS instance
+* Misconfigured RDS instance
 * Publically accessable EC2 instance
 * Overly permissive security group ingress rules
 * S3 bucket without restrictive bucket policies
