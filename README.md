@@ -7,10 +7,10 @@ This project provisions a small but diverse AWS environment designed to support 
 1. [Requirements](#1-requirements)
 2. [Resources Created](#2-resources-created)
 3. [Security Scenarios Covered](#3-security-scenarios-covered)
-  1. [CSPM](#1-cspm--cloud-security-posture-management)
-  2. [CIEM](#2-ciem--cloud-infrastructure-entitlement-management)
-  3. [KSPM](#3-kspm--kubernetes-security-posture-management)
-  4. [DSPM](#4-dspm--data-security-posture-management)
+  - [CSPM](#1-cspm--cloud-security-posture-management)
+  - [CIEM](#2-ciem--cloud-infrastructure-entitlement-management)
+  - [KSPM](#3-kspm--kubernetes-security-posture-management)
+  - [DSPM](#4-dspm--data-security-posture-management)
 4. [Getting Started](#4-getting-started)
 5. [Cleanup](#5-cleanup)
 
@@ -106,7 +106,7 @@ This Terraform project creates the following core AWS resources:
 
 This environment intentionally enables **multiple cloud security domains** and is well suited for security tooling validation, demos, and detections.
 
-### 1. CSPM – Cloud Security Posture Management
+### 3.1. CSPM – Cloud Security Posture Management
 
 **Scenario:**
 
@@ -123,7 +123,7 @@ This environment intentionally enables **multiple cloud security domains** and i
 
 ---
 
-### 2. CIEM – Cloud Infrastructure Entitlement Management
+### 3.2. CIEM – Cloud Infrastructure Entitlement Management
 
 **Scenario:**
 
@@ -139,7 +139,7 @@ This environment intentionally enables **multiple cloud security domains** and i
 
 ---
 
-### 3. KSPM – Kubernetes Security Posture Management
+### 3.3. KSPM – Kubernetes Security Posture Management
 
 **Scenario:**
 
@@ -155,7 +155,7 @@ This environment intentionally enables **multiple cloud security domains** and i
 
 ---
 
-### 4. DSPM – Data Security Posture Management
+### 3.4. DSPM – Data Security Posture Management
 
 **Scenario:**
 
