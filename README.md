@@ -4,6 +4,16 @@ This project provisions a small but diverse AWS environment designed to support 
 
 ⚠️ Important: This code intentionally creates insecure resources. Use only in a sandbox / test account.
 
+- [Requirements](#requirements)
+- [Resources Created](#resources-created)
+- [Security Scenarios Covered](#security-scenarios-covered)
+  1. [CSPM](#1-cspm--cloud-security-posture-management)
+  2. [CIEM](#2-ciem--cloud-infrastructure-entitlement-management)
+  3. [KSPM](#3-kspm--kubernetes-security-posture-management)
+  4. [DSPM](#4-dspm--data-security-posture-management)
+- [Getting Started](#4-getting-started)
+- [Cleanup](#cleanup)
+
 ## 1. Requirements
 
 To successfully deploy this Terraform project, the following requirements must be met:
@@ -34,9 +44,8 @@ To successfully deploy this Terraform project, the following requirements must b
 
 ### Terraform Configuration
 
-* Review and customize `terraform.auto.tfvars` as needed
+* Review and customize `terraform.tfvars` as needed
 * Ensure a valid AWS region is configured
-* Internet access is required for:
 
 ## 2. Resources Created
 
@@ -52,7 +61,7 @@ This Terraform project creates the following core AWS resources:
 * **1 Amazon EKS cluster**
 
   * EKS control plane IAM role
-  * Managed node group
+  * Managed node group with 2 nodes
 * **1 Amazon ECR repository**
 
   * For container image storage
@@ -67,6 +76,9 @@ This Terraform project creates the following core AWS resources:
 
   * Intended for database backups or artifacts
   * Publicly accessible (intentional for security testing)
+* **1 Amazon S3 bucket**
+
+  * Intended for database sensitive data
 
 ### Identity & Access Management
 
@@ -157,3 +169,33 @@ This environment intentionally enables **multiple cloud security domains** and i
 * Sensitive data exposure
 * Encryption at rest validation
 * Data residency and access paths
+
+## 4. Getting Started
+
+On your machine, run the following commands.
+```
+git clone https://github.com/bmppa/cnapp-pov-test.git
+cd cnapp-pov-test
+```
+
+For testing on AWS:
+```
+cd aws
+terraform init
+terraform apply
+```
+
+Once Terraform finishes running you can retrieve the SSH private key using the following command.
+
+```
+terraform output -raw private_key > myKey.pem && chmod 400 myKey.pem && ssh-add myKey.pem
+```
+
+To connect to the MongoDB instance you can simply do `ssh ubuntu@<PUBLIC_IP_ADDRESS>`
+
+## 5. Cleanup
+
+Once you are done with the testing, you can delete all the resources by running the command:
+```
+terraform destroy
+```
