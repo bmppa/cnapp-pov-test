@@ -4,15 +4,15 @@ This project provisions a small but diverse AWS environment designed to support 
 
 ⚠️ Important: This code intentionally creates insecure resources. Use only in a sandbox / test account.
 
-- [Requirements](#1-requirements)
-- [Resources Created](#2-resources-created)
-- [Security Scenarios Covered](#3-security-scenarios-covered)
+1. [Requirements](#1-requirements)
+2. [Resources Created](#2-resources-created)
+3. [Security Scenarios Covered](#3-security-scenarios-covered)
   1. [CSPM](#1-cspm--cloud-security-posture-management)
   2. [CIEM](#2-ciem--cloud-infrastructure-entitlement-management)
   3. [KSPM](#3-kspm--kubernetes-security-posture-management)
   4. [DSPM](#4-dspm--data-security-posture-management)
-- [Getting Started](#4-getting-started)
-- [Cleanup](#5-cleanup)
+4. [Getting Started](#4-getting-started)
+5. [Cleanup](#5-cleanup)
 
 ## 1. Requirements
 
