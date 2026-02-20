@@ -59,7 +59,7 @@ resource "aws_eks_cluster" "my_eks_cluster" {
   enabled_cluster_log_types = ["audit"]
 
   vpc_config {
-    public_access_cidrs = ["0.0.0.0/0"]
+    public_access_cidrs = [var.my_ip]
     subnet_ids = [
       aws_subnet.priv_net_1.id,
       aws_subnet.priv_net_2.id

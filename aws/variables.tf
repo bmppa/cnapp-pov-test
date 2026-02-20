@@ -23,7 +23,10 @@ variable "script" {
   type    = string
   default = "none"
 }
-
+variable "my_ip" {
+  type    = string
+  default = "0.0.0.0/0"
+}
 variable "eks_instance_type" {
   type = list(string)
 }

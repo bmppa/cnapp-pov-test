@@ -178,11 +178,18 @@ git clone https://github.com/bmppa/cnapp-pov-test.git
 cd cnapp-pov-test
 ```
 
-For testing on AWS:
+For testing on AWS, and publically expose the Kube API Server API, run the following commands.
 ```
 cd aws
 terraform init
 terraform apply
+```
+
+If you don't want to publically expose the Kube API Server, run the following commands.
+```
+cd aws
+terraform init
+./run.sh
 ```
 
 Once Terraform finishes running you can retrieve the SSH private key using the following command.
@@ -192,6 +199,11 @@ terraform output -raw private_key > myKey.pem && chmod 400 myKey.pem && ssh-add 
 ```
 
 To connect to the MongoDB instance you can simply do `ssh ubuntu@<PUBLIC_IP_ADDRESS>`
+
+Update your kubeconfig file.
+```
+aws eks --region us-east-1 update-kubeconfig --name $(terraform output -raw eks_cluster)
+```
 
 ## 5. Cleanup
 
